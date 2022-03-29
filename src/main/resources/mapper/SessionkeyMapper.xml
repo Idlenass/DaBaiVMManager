@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.SessionkeyDao">
+
+    <resultMap type="entity.Sessionkey" id="SessionkeyMap">
+        <result property="userid" column="userid" jdbcType="VARCHAR"/>
+        <result property="sessionkey" column="sessionkey" jdbcType="VARCHAR"/>
+        <result property="deadline" column="deadline" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="querySessionkeyBySessionkey" resultMap="SessionkeyMap">
+        select
+          userid, sessionkey, deadline
+        from SessionKey
+        where sessionkey = #{sessionkey}
+    </select>
+
+    <select id="querySessionkeyByUserid" resultMap="SessionkeyMap">
+        select
+            userid, sessionkey, deadline
+        from SessionKey
+        where userid = #{userid}
+    </select>
+
+    <!--查询指定数据-->
+    <select id="querySessionkeyAll" resultMap="SessionkeyMap">
+        select
+          userid, sessionkey, deadline
+        from SessionKey
+        <where>
+            <if test="userid != null and userid != ''">
+                and userid = #{userid}
+            </if>
+            <if test="sessionkey != null and sessionkey != ''">
+                and sessionkey = #{sessionkey}
+            </if>
+            <if test="deadline != null and deadline != ''">
+                and deadline = #{deadline}
+            </if>
+        </where>
+    </select>
+
+    <!--统计总行数-->
+    <select id="countSessionkey" resultType="java.lang.Long">
+        select count(1)
+        from SessionKey
+        <where>
+            <if test="userid != null and userid != ''">
+                and userid = #{userid}
+            </if>
+            <if test="sessionkey != null and sessionkey != ''">
+                and sessionkey = #{sessionkey}
+            </if>
+            <if test="deadline != null and deadline != ''">
+                and deadline = #{deadline}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insertSessionkey" keyProperty="sessionkey" useGeneratedKeys="true">
+        insert into SessionKey(sessionkey, userid, deadline)
+        values (#{sessionkey} ,#{userid}, #{deadline})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="updateSessionkey">
+        update SessionKey
+        <set>
+            <if test="userid != null and userid != ''">
+                userid = #{userid},
+            </if>
+            <if test="deadline != null and deadline != ''">
+                deadline = #{deadline},
+            </if>
+        </set>
+        where sessionkey = #{sessionkey}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteSessionkeyBySessionkey">
+        delete from SessionKey where sessionkey = #{sessionkey}
+    </delete>
+
+    <!--通过Userid删除-->
+    <delete id="deleteSessionkeyByUserid">
+        delete from SessionKey where userid = #{userid}
+    </delete>
+
+    <insert id="insertSessionkeyBatch" keyProperty="sessionkey" useGeneratedKeys="true">
+        insert into SessionKey(userid, deadline)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+        (#{entity.userid}, #{entity.deadline})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateSessionkeyBatch" keyProperty="sessionkey" useGeneratedKeys="true">
+        insert into SessionKey(userid, deadline)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.userid}, #{entity.deadline})
+        </foreach>
+        on duplicate key update
+        userid = values(userid),
+        deadline = values(deadline)
+    </insert>
+
+</mapper>
+

@@ -1,0 +1,33 @@
+<link href="static/main/css/mcserverpage.css" rel="stylesheet">
+
+<div class="mdui-container">
+
+    <!--    用于VUE挂载-->
+    <div id="mcserverlist">
+
+        <div class="mdui">
+            <div class="mdui-card">
+                <div class="mdui-card-header">
+                    <div class="mdui-card-header-avatar mdui-icon material-icons">dashboard</div>
+                    <div class="mdui-card-header-title">
+                        Minecraft Server
+                    </div>
+                    <mcserverlistheader
+                            v-bind:servernum="servernum"
+                            v-bind:runningnum="runningnum"
+                            v-bind:stoppingnum="stoppingnum"
+                    ></mcserverlistheader>
+                </div>
+            </div>
+        </div>
+
+        <mcserverlist v-bind:serverlist="serverlist"></mcserverlist>
+
+    </div>
+
+</div>
+
+<script src="static/main/js/mcserverpagedataloader.js"></script>
+<script>
+    displayMinecraftServerPageDatas();
+</script>

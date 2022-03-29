@@ -1,0 +1,36 @@
+.server-icon {
+    width: 15px;
+    height: 15px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-top: 4px;
+}
+.server-run{
+    background: #12F842FF;
+}
+.server-stop{
+    background: #9d9d9d;
+}
+.dby-server-card{
+    cursor: pointer;
+}
+.dby-server-status{
+    display: flex;
+    font-size: smaller;
+    margin-left: 20px;
+    margin-top: 8px;
+}
+.dby-server-status-text{
+    margin-top: 2px;
+}
+.dby-server-title{
+    display: flex;
+    width: 80%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.consolelink{
+    color: #aaaaaa;
+}

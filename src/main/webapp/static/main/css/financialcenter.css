@@ -1,0 +1,70 @@
+.dby-financialcenter-card-subtitle{
+    font-size: larger;
+}
+
+.dby-financialcenter-userheadimg{
+    width:90%;
+    height:90%;
+    margin-bottom: 20%;
+}
+
+
+
+.dby-financialcenter-card-message{
+    height: 200px;
+}
+
+.dby-financialcenter-card-joinus{
+    height: 200px;
+}
+
+.dby-financialcenter-card-joinus-divs{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.dby-financialcenter-card-joinus-qqcode{
+    width: 100px;
+    height: 120px;
+}
+
+.dby-financialcenter-card-serverinfo-childcard-title{
+    font-size: medium;
+}
+
+.dby-financialcenter-card-serverinfo-childcard-text{
+    color: #9E9E9E;
+}
+
+.dby-financialcenter-card-subrow{
+    margin-top: 20px;
+}
+
+.dby-financialcenter-card-subrow-title{
+    font-size: medium;
+}
+
+.dby-financialcenter-card-subrow-text{
+    margin-top: 10px;
+}
+
+.dby-financialcenter-card-subrow-text-smaller{
+    margin-top: 10px;
+    font-size: smaller;
+}
+
+.dby-financialcenter-card-subrow-balance{
+    font-size: larger;
+    color:orange;
+}
+
+.dby-financialcenter-card-subrow-voucher{
+    font-size: larger;
+}
+
+.dby-financialcenter-card-label-num{
+    font-size: large;
+}

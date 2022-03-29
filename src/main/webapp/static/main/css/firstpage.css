@@ -1,0 +1,80 @@
+.dby-firstpage-card-subtitle{
+    font-size: larger;
+}
+
+.dby-firstpage-userheadimg{
+    width:90%;
+    height:90%;
+    margin-bottom: 20%;
+}
+
+.dby-firstpage-card-accountinfo{
+    height: 200px;
+}
+
+.dby-firstpage-card-todolist{
+    height: 200px;
+}
+
+.dby-firstpage-card-serverinfo{
+    height: 200px;
+}
+
+.dby-firstpage-card-message{
+    height: 200px;
+}
+
+.dby-firstpage-card-joinus{
+    height: 200px;
+}
+
+.dby-firstpage-card-joinus-divs{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.dby-firstpage-card-joinus-qqcode{
+    width: 100px;
+    height: 120px;
+}
+
+.dby-firstpage-card-serverinfo-childcard-title{
+    font-size: medium;
+}
+
+.dby-firstpage-card-serverinfo-childcard-text{
+    color: #9E9E9E;
+}
+
+.dby-firstpage-card-subrow{
+    margin-top: 20px;
+}
+
+.dby-firstpage-card-subrow-title{
+    font-size: smaller;
+}
+
+.dby-firstpage-card-subrow-text{
+    margin-top: 10px;
+}
+
+.dby-firstpage-card-subrow-text-smaller{
+    margin-top: 10px;
+    font-size: smaller;
+}
+
+.dby-firstpage-card-subrow-balance{
+    font-size: larger;
+    color:orange;
+}
+
+.dby-firstpage-card-subrow-voucher{
+    font-size: larger;
+}
+
+.dby-firstpage-card-label-num{
+    font-size: large;
+}

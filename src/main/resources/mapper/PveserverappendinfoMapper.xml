@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.PveserverappendinfoDao">
+
+    <resultMap type="entity.Pveserverappendinfo" id="PveserverappendinfoMap">
+        <result property="vmid" column="vmid" jdbcType="INTEGER"/>
+        <result property="natportbegin" column="natportbegin" jdbcType="VARCHAR"/>
+        <result property="natportend" column="natportend" jdbcType="VARCHAR"/>
+        <result property="bandwitdh" column="bandwitdh" jdbcType="VARCHAR"/>
+        <result property="timelimitdate" column="timelimitdate" jdbcType="VARCHAR"/>
+        <result property="module" column="Module" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryPvesaiByvmid" resultMap="PveserverappendinfoMap">
+        select
+          vmid, natportbegin, natportend, bandwitdh, timelimitdate, Module, ipaddr
+        from PveServerAppendInfo
+        where vmid = #{vmid}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryPvesaiByPvesai" resultMap="PveserverappendinfoMap">
+        select
+          vmid, natportbegin, natportend, bandwitdh, timelimitdate, Module, ipaddr
+        from PveServerAppendInfo
+        <where>
+            <if test="vmid != null and vmid != ''">
+                and vmid = #{vmid}
+            </if>
+            <if test="natportbegin != null and natportbegin != ''">
+                and natportbegin = #{natportbegin}
+            </if>
+            <if test="natportend != null and natportend != ''">
+                and natportend = #{natportend}
+            </if>
+            <if test="bandwitdh != null and bandwitdh != ''">
+                and bandwitdh = #{bandwitdh}
+            </if>
+            <if test="timelimitdate != null and timelimitdate != ''">
+                and timelimitdate = #{timelimitdate}
+            </if>
+            <if test="module != null and module != ''">
+                and Module = #{module}
+            </if>
+            <if test="ipaddr != null and ipaddr != ''">
+                and ipaddr = #{ipaddr}
+            </if>
+        </where>
+    </select>
+
+    <!--统计总行数-->
+    <select id="countPvesai" resultType="java.lang.Long">
+        select count(1)
+        from PveServerAppendInfo
+        <where>
+            <if test="vmid != null and vmid != ''">
+                and vmid = #{vmid}
+            </if>
+            <if test="natportbegin != null and natportbegin != ''">
+                and natportbegin = #{natportbegin}
+            </if>
+            <if test="natportend != null and natportend != ''">
+                and natportend = #{natportend}
+            </if>
+            <if test="bandwitdh != null and bandwitdh != ''">
+                and bandwitdh = #{bandwitdh}
+            </if>
+            <if test="timelimitdate != null and timelimitdate != ''">
+                and timelimitdate = #{timelimitdate}
+            </if>
+            <if test="module != null and module != ''">
+                and Module = #{module}
+            </if>
+            <if test="ipaddr != null and ipaddr != ''">
+                and ipaddr = #{ipaddr}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insertPvesai" keyProperty="vmid" useGeneratedKeys="true">
+        insert into PveServerAppendInfo(vmid, natportbegin, natportend, bandwitdh, timelimitdate, Module, ipaddr)
+        values (#{vmid}, #{natportbegin}, #{natportend}, #{bandwitdh}, #{timelimitdate}, #{module}, #{ipaddr})
+    </insert>
+
+    <insert id="insertPvesaiBatch" keyProperty="vmid" useGeneratedKeys="true">
+        insert into PveServerAppendInfo(natportbegin, natportend, bandwitdh, timelimitdate, Module, ipaddr)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+        (#{entity.natportbegin}, #{entity.natportend}, #{entity.bandwitdh}, #{entity.timelimitdate}, #{entity.module}, #{ipaddr})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdatePvesaiBatch" keyProperty="vmid" useGeneratedKeys="true">
+        insert into PveServerAppendInfo(natportbegin, natportend, bandwitdh, timelimitdate, Module, ipaddr)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.natportbegin}, #{entity.natportend}, #{entity.bandwitdh}, #{entity.timelimitdate}, #{entity.module}, #{ipaddr})
+        </foreach>
+        on duplicate key update
+        natportbegin = values(natportbegin),
+        natportend = values(natportend),
+        bandwitdh = values(bandwitdh),
+        timelimitdate = values(timelimitdate),
+        Module = values(Module),
+        ipaddr = values(ipaddr)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="updatePvesai">
+        update PveServerAppendInfo
+        <set>
+            <if test="natportbegin != null and natportbegin != ''">
+                natportbegin = #{natportbegin},
+            </if>
+            <if test="natportend != null and natportend != ''">
+                natportend = #{natportend},
+            </if>
+            <if test="bandwitdh != null and bandwitdh != ''">
+                bandwitdh = #{bandwitdh},
+            </if>
+            <if test="timelimitdate != null and timelimitdate != ''">
+                timelimitdate = #{timelimitdate},
+            </if>
+            <if test="module != null and module != ''">
+                Module = #{module},
+            </if>
+            <if test="ipaddr != null and ipaddr != ''">
+                ipaddr = #{ipaddr}
+            </if>
+        </set>
+        where vmid = #{vmid}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deletePvesaiByvmid">
+        delete from PveServerAppendInfo where vmid = #{vmid}
+    </delete>
+
+</mapper>
+

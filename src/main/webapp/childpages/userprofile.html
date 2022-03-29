@@ -1,0 +1,199 @@
+<link href="static/main/css/userprofile.css" rel="stylesheet">
+
+<div class="mdui-container">
+
+    <div class="mdui-row">
+        <div class="mdui-col-xs-12 mdui-card">
+            <div class="mdui-card-primary">
+                <div class="mdui-col-xs-1">
+                    <img class="dby-userprofile-userheadimg mdui-img-circle" src="static/login/img/dbylogo.ico">
+                </div>
+                <div class="mdui-col-xs-6">
+                    <div class="mdui-card-primary-title">
+<!--                        显示用户名username-->
+                        <label id="userprofile-title-username"></label>
+                    </div>
+                    <div class="mdui-card-primary-subtitle">
+<!--                        此处显示用户星级-->
+                    </div>
+                </div>
+                <p>&nbsp</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="mdui-row">
+
+        <div class="dby-userprofile-card-accountinfo mdui-card mdui-col-xs-12">
+            <div class="mdui-card-primary">
+                <div class="dby-userprofile-card-subtitle mdui-card-primary-subtitle">基本信息</div>
+                <div class="dby-userprofile-card-subrow mdui-row-xs-4">
+
+                    <div class="mdui-col">
+
+                        <div>
+                            <div>
+                                <label class="dby-userprofile-card-subrow-title">会员ID</label>
+                            </div>
+                            <div class="dby-userprofile-card-subrow-text">
+                                <label class="dby-userprofile-card-subrow" id="userprofile-baseinfo-userid"></label>
+                            </div>
+                        </div>
+
+                        <div class="dby-userprofile-card-subrow">
+                            <div>
+                                <label class="dby-userprofile-card-subrow-title">QQ</label>
+                            </div>
+                            <div class="dby-userprofile-card-subrow-text">
+                                <label class="dby-userprofile-card-subrow" id="userprofile-baseinfo-qq"></label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="mdui-col">
+
+                        <div>
+                            <div>
+                                <label class="dby-userprofile-card-subrow-title">注册时间</label>
+                            </div>
+                            <div class="dby-userprofile-card-subrow-text">
+                                <label class="dby-userprofile-card-subrow" id="userprofile-baseinfo-registertime"></label>
+                            </div>
+                        </div>
+
+                        <div class="dby-userprofile-card-subrow">
+                            <div>
+                                <label class="dby-userprofile-card-subrow-title">上次登入</label>
+                            </div>
+                            <div class="dby-userprofile-card-subrow-text">
+                                <label class="dby-userprofile-card-subrow" id="userprofile-baseinfo-lastlogintime"></label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="mdui-col">
+
+                        <div>
+                            <div>
+                                <label class="dby-userprofile-card-subrow-title">绑定手机</label>
+                            </div>
+                            <div class="dby-userprofile-card-subrow-text">
+                                <label class="dby-userprofile-card-subrow" id="userprofile-baseinfo-phone"></label>
+                            </div>
+                        </div>
+
+                        <div class="dby-userprofile-card-subrow">
+                            <div>
+                                <label class="dby-userprofile-card-subrow-title">绑定邮箱</label>
+                            </div>
+                            <div class="dby-userprofile-card-subrow-text">
+                                <label class="dby-userprofile-card-subrow" id="userprofile-baseinfo-email"></label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="mdui-col">
+
+                        <div>
+                            <div>
+                                <label class="dby-userprofile-card-subrow-title">密保问题</label>
+                            </div>
+                            <div class="dby-userprofile-card-subrow-text">
+                                <label class="dby-userprofile-card-subrow">去设置-></label>
+                            </div>
+                        </div>
+
+                        <div class="dby-userprofile-card-subrow">
+                            <div>
+                                <label class="dby-userprofile-card-subrow-title">实名认证</label>
+                            </div>
+                            <div class="dby-userprofile-card-subrow-text">
+                                <label class="dby-userprofile-card-subrow">去认证-></label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mdui-row">
+
+        <div class="dby-userprofile-card-todolist mdui-card mdui-col-xs-6">
+            <div class="mdui-card-primary">
+                <div class="dby-userprofile-card-subtitle mdui-card-primary-subtitle">财务概览</div>
+                <div>
+                    <ul class="mdui-list mdui-list-dense">
+                        <li class="mdui-list-item mdui-ripple">
+                            <i class="mdui-list-item-icon mdui-icon material-icons">monetization_on</i>
+                            <div class="mdui-list-item-content">
+                                <label class="dby-userprofile-card-label-num dby-userprofile-card-subrow-balance" id="userprofile-financial-balance">0</label>
+                                <label class="dby-userprofile-card-label-text">余额</label>
+                            </div>
+                        </li>
+                        <li class="mdui-list-item mdui-ripple">
+                            <i class="mdui-list-item-icon mdui-icon material-icons">assignment_turned_in</i>
+                            <div class="mdui-list-item-content">
+                                <label class="dby-userprofile-card-label-num">0</label>
+                                <label class="dby-userprofile-card-label-text">订单</label>
+                            </div>
+                        </li>
+                        <li class="mdui-list-item mdui-ripple">
+                            <i class="mdui-list-item-icon mdui-icon material-icons">assignment</i>
+                            <div class="mdui-list-item-content">
+                                <label class="dby-userprofile-card-label-num">0</label>
+                                <label class="dby-userprofile-card-label-text">工单</label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="dby-userprofile-card-serverinfo mdui-card mdui-col-xs-6">
+            <div class="mdui-card-primary">
+                <div class="dby-userprofile-card-subtitle mdui-card-primary-subtitle">服务器概览</div>
+
+                <div>
+                    <ul class="mdui-list mdui-list-dense">
+
+                        <li class="mdui-list-item mdui-ripple">
+                            <i class="mdui-list-item-icon mdui-icon material-icons">dashboard</i>
+                            <div class="mdui-list-item-content">
+                                <label class="dby-userprofile-card-label-num">0</label>
+                                <label class="dby-userprofile-card-label-text">MinecraftServer</label>
+                            </div>
+                        </li>
+                        <li class="mdui-list-item mdui-ripple">
+                            <i class="mdui-list-item-icon mdui-icon material-icons">storage</i>
+                            <div class="mdui-list-item-content">
+                                <label class="dby-userprofile-card-label-num">0</label>
+                                <label class="dby-userprofile-card-label-text">VPS server</label>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div id="footer-message">
+
+</div>
+<script src="static/main/js/userprofilepagedataloader.js"></script>
+<script>
+    $("#footer-message").load("childpages/footer-message.html");
+    displayUserProfilePageDatas();
+</script>

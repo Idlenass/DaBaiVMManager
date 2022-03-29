@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.McsmserverappendinfoDao">
+
+    <resultMap type="entity.Mcsmserverappendinfo" id="McsmserverappendinfoMap">
+        <result property="servername" column="servername" jdbcType="VARCHAR"/>
+        <result property="serveraddr" column="serveraddr" jdbcType="VARCHAR"/>
+        <result property="serverport" column="serverport" jdbcType="INTEGER"/>
+        <result property="serverarea" column="serverarea" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryMcsaiByServername" resultMap="McsmserverappendinfoMap">
+        select
+          servername, serveraddr, serverport, serverarea
+        from McsmServerAppendInfo
+        where servername = #{servername}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryMcsaiByMcsai" resultMap="McsmserverappendinfoMap">
+        select
+          servername, serveraddr, serverport, serverarea
+        from McsmServerAppendInfo
+        <where>
+            <if test="servername != null and servername != ''">
+                and servername = #{servername}
+            </if>
+            <if test="serveraddr != null and serveraddr != ''">
+                and serveraddr = #{serveraddr}
+            </if>
+            <if test="serverport != null and serverport != ''">
+                and serverport = #{serverport}
+            </if>
+            <if test="serverarea != null and serverarea != ''">
+                and serverarea = #{serverarea}
+            </if>
+        </where>
+    </select>
+
+    <!--统计总行数-->
+    <select id="countMcsai" resultType="java.lang.Long">
+        select count(1)
+        from McsmServerAppendInfo
+        <where>
+            <if test="servername != null and servername != ''">
+                and servername = #{servername}
+            </if>
+            <if test="serveraddr != null and serveraddr != ''">
+                and serveraddr = #{serveraddr}
+            </if>
+            <if test="serverport != null and serverport != ''">
+                and serverport = #{serverport}
+            </if>
+            <if test="serverarea != null and serverarea != ''">
+                and serverarea = #{serverarea}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insertMcsai" keyProperty="servername" useGeneratedKeys="true">
+        insert into McsmServerAppendInfo(serveraddr, serverport, serverarea)
+        values (#{serveraddr}, #{serverport}, #{serverarea})
+    </insert>
+
+    <insert id="insertMcsaiBatch" keyProperty="servername" useGeneratedKeys="true">
+        insert into McsmServerAppendInfo(serveraddr, serverport, serverarea)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+        (#{entity.serveraddr}, #{entity.serverport}, #{entity.serverarea})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateMcsaiBatch" keyProperty="servername" useGeneratedKeys="true">
+        insert into McsmServerAppendInfo(serveraddr, serverport, serverarea)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.serveraddr}, #{entity.serverport}, #{entity.serverarea})
+        </foreach>
+        on duplicate key update
+        serveraddr = values(serveraddr),
+        serverport = values(serverport),
+        serverarea = values(serverarea)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="updateMcsai">
+        update McsmServerAppendInfo
+        <set>
+            <if test="serveraddr != null and serveraddr != ''">
+                serveraddr = #{serveraddr},
+            </if>
+            <if test="serverport != null and serverport != ''">
+                serverport = #{serverport},
+            </if>
+            <if test="serverarea != null and serverarea != ''">
+                serverarea = #{serverarea},
+            </if>
+        </set>
+        where servername = #{servername}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteMcsaiByServername">
+        delete from McsmServerAppendInfo where servername = #{servername}
+    </delete>
+
+</mapper>
+

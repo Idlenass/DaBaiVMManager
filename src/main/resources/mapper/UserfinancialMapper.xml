@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.UserfinancialDao">
+
+    <resultMap type="entity.Userfinancial" id="UserfinancialMap">
+        <result property="userid" column="userid" jdbcType="VARCHAR"/>
+        <result property="balance" column="balance" jdbcType="NUMERIC"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryUserfinancialByUserid" resultMap="UserfinancialMap">
+        select
+          userid, balance
+        from UserFinancial
+        where userid = #{userid}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryUserfinancialAll" resultMap="UserfinancialMap">
+        select
+          userid, balance
+        from UserFinancial
+        <where>
+            <if test="userid != null and userid != ''">
+                and userid = #{userid}
+            </if>
+            <if test="balance != null">
+                and balance = #{balance}
+            </if>
+        </where>
+    </select>
+
+    <!--统计总行数-->
+    <select id="countUserfinancial" resultType="java.lang.Long">
+        select count(1)
+        from UserFinancial
+        <where>
+            <if test="userid != null and userid != ''">
+                and userid = #{userid}
+            </if>
+            <if test="balance != null">
+                and balance = #{balance}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insertUserfinancial" keyProperty="userid" useGeneratedKeys="true">
+        insert into UserFinancial(balance)
+        values (#{balance})
+    </insert>
+
+    <insert id="insertUserfinancialBatch" keyProperty="userid" useGeneratedKeys="true">
+        insert into UserFinancial(balance)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+        (#{entity.balance})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateUserfinancialBatch" keyProperty="userid" useGeneratedKeys="true">
+        insert into UserFinancial(balance)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.balance})
+        </foreach>
+        on duplicate key update
+        balance = values(balance)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="updateUserfinancial">
+        update UserFinancial
+        <set>
+            <if test="balance != null">
+                balance = #{balance},
+            </if>
+        </set>
+        where userid = #{userid}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteUserfinancialByUserid">
+        delete from UserFinancial where userid = #{userid}
+    </delete>
+
+</mapper>
+

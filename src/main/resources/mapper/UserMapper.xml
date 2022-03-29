@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.UserDao">
+
+    <resultMap type="entity.User" id="UserMap">
+        <result property="userid" column="userid" jdbcType="VARCHAR"/>
+        <result property="username" column="username" jdbcType="VARCHAR"/>
+        <result property="password" column="password" jdbcType="VARCHAR"/>
+        <result property="registertime" column="registertime" jdbcType="VARCHAR"/>
+        <result property="lastlogintime" column="lastlogintime" jdbcType="VARCHAR"/>
+        <result property="phone" column="phone" jdbcType="VARCHAR"/>
+        <result property="email" column="email" jdbcType="VARCHAR"/>
+        <result property="qq" column="qq" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryUserById" resultMap="UserMap">
+        select
+          userid, username, password, registertime, lastlogintime, phone, email, qq
+        from User
+        where userid = #{userid}
+    </select>
+
+    <!--查询指定数据-->
+    <select id="queryUserAll" resultMap="UserMap">
+        select
+          userid, username, password, registertime, lastlogintime, phone, email, qq
+        from User
+        <where>
+            <if test="userid != null and userid != ''">
+                and userid = #{userid}
+            </if>
+            <if test="username != null and username != ''">
+                and username = #{username}
+            </if>
+            <if test="password != null and password != ''">
+                and password = #{password}
+            </if>
+            <if test="registertime != null and registertime != ''">
+                and registertime = #{registertime}
+            </if>
+            <if test="lastlogintime != null and lastlogintime != ''">
+                and lastlogintime = #{lastlogintime}
+            </if>
+            <if test="phone != null and phone != ''">
+                and phone = #{phone}
+            </if>
+            <if test="email != null and email != ''">
+                and email = #{email}
+            </if>
+            <if test="qq != null and qq != ''">
+                and qq = #{qq}
+            </if>
+        </where>
+    </select>
+
+    <!--统计总行数-->
+    <select id="countUser" resultType="java.lang.Long">
+        select count(1)
+        from User
+        <where>
+            <if test="userid != null and userid != ''">
+                and userid = #{userid}
+            </if>
+            <if test="username != null and username != ''">
+                and username = #{username}
+            </if>
+            <if test="password != null and password != ''">
+                and password = #{password}
+            </if>
+            <if test="registertime != null and registertime != ''">
+                and registertime = #{registertime}
+            </if>
+            <if test="lastlogintime != null and lastlogintime != ''">
+                and lastlogintime = #{lastlogintime}
+            </if>
+            <if test="phone != null and phone != ''">
+                and phone = #{phone}
+            </if>
+            <if test="email != null and email != ''">
+                and email = #{email}
+            </if>
+            <if test="qq != null and qq != ''">
+                and qq = #{qq}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insertUser" keyProperty="userid" useGeneratedKeys="true">
+        insert into User(username, password, registertime, lastlogintime, phone, email, qq)
+        values (#{username}, #{password}, #{registertime}, #{lastlogintime}, #{phone}, #{email}, #{qq})
+    </insert>
+
+    <insert id="insertUserBatch" keyProperty="userid" useGeneratedKeys="true">
+        insert into User(username, password, registertime, lastlogintime, phone, email, qq)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+        (#{entity.username}, #{entity.password}, #{entity.registertime}, #{entity.lastlogintime}, #{entity.phone}, #{entity.email}, #{entity.qq})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateUserBatch" keyProperty="userid" useGeneratedKeys="true">
+        insert into User(username, password, registertime, lastlogintime, phone, email, qq)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.username}, #{entity.password}, #{entity.registertime}, #{entity.lastlogintime}, #{entity.phone}, #{entity.email}, #{entity.qq})
+        </foreach>
+        on duplicate key update
+        username = values(username),
+        password = values(password),
+        registertime = values(registertime),
+        lastlogintime = values(lastlogintime),
+        phone = values(phone),
+        email = values(email),
+        qq = values(qq),
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="updateUser">
+        update User
+        <set>
+            <if test="username != null and username != ''">
+                username = #{username},
+            </if>
+            <if test="password != null and password != ''">
+                password = #{password},
+            </if>
+            <if test="registertime != null and registertime != ''">
+                registertime = #{registertime},
+            </if>
+            <if test="lastlogintime != null and lastlogintime != ''">
+                lastlogintime = #{lastlogintime},
+            </if>
+            <if test="phone != null and phone != ''">
+                phone = #{phone},
+            </if>
+            <if test="email != null and email != ''">
+                email = #{email},
+            </if>
+            <if test="qq != null and qq != ''">
+                qq = #{qq}
+            </if>
+        </set>
+        where userid = #{userid}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteUserById">
+        delete from User where userid = #{userid}
+    </delete>
+
+</mapper>
+

@@ -1,0 +1,20 @@
+.mcserver-icon {
+    width: 20px;
+    height: 20px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.mcserver-run{
+    background: #12F842FF;
+}
+.mcserver-stop{
+    background: #9d9d9d;
+}
+.dby-mcserver-title{
+    display: flex;
+}
+.consolelink{
+    color: #aaaaaa;
+}

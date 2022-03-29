@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="static/main/css/vpsinfopage.css">
+<script src="static/main/js/vpsinfopagedataopts.js"></script>
+
+<div class="mdui-container">
+
+    <div id="vpsinfo">
+        <vpsinfocard v-bind:vps="vps"></vpsinfocard>
+    </div>
+</div>
+
+<script>
+    initPageData();
+    mdui.mutation();
+</script>

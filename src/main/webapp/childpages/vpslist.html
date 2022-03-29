@@ -1,0 +1,37 @@
+<link href="static/main/css/vpslistpage.css" rel="stylesheet">
+
+<div class="mdui-container" id="vpslist">
+    <div class="mdui-row-xs-12">
+        <div class="mdui-col-xs-12">
+            <div class="mdui-card">
+                <div class="mdui-card-header">
+                    <div class="mdui-card-header-avatar mdui-icon material-icons">storage</div>
+                    <div class="mdui-card-header-title">
+                        VPS Servers
+                    </div>
+
+                    <vpslistheader
+                            v-bind:servernum="servernum"
+                            v-bind:runningnum="runningnum"
+                            v-bind:stoppingnum="stoppingnum"
+                    ></vpslistheader>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="mdui-row-xs-12">
+
+        <div v-for="vps in vpsinfolist">
+            <vpslistcard v-bind:vps="vps"></vpslistcard>
+        </div>
+    </div>
+</div>
+
+<script src="static/main/js/vpslistpagedataloader.js"></script>
+<script>
+    displayVpsListPageDatas();
+</script>

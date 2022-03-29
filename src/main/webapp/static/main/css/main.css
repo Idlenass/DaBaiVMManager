@@ -1,0 +1,84 @@
+.link {
+    color: blue;
+    text-decoration:none
+}
+#mainContent, #noteContent {
+    position: relative;
+    top: 0px
+}
+#title,#content {
+    cursor: text;
+}
+@keyframes skeleton-load {
+    0% {
+        background-position: 0rem;
+    }
+    100% {
+        background-position: 10000rem;
+    }
+}
+.texto {
+    width: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#menu .mdui-list-item,
+.mdui-collapse-item-header {
+    border-radius: 0px 50px 50px 0px;
+}
+
+#categorys .mdui-list-item,
+.mdui-collapse-item-header {
+    border-radius: 0px 50px 50px 0px;
+}
+
+ul .mdui-list-item {
+    border-radius: 10px;
+}
+
+.mdui-dialog {
+    border-radius: 7px;
+}
+
+.mdui-btn {
+    border-radius: 5px;
+}
+
+.mdui-appbar {
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
+}
+
+#menu .mdui-list-item-content {
+    font-size: unset
+}
+
+#categorys .mdui-list-item-content {
+    font-size: unset
+}
+
+.mdui-list-item-active {
+    color: rgb(27,116,232);
+}
+
+.mdui-list-item-active * {
+    color: rgb(27,116,232);
+}
+.mdui-card {
+    margin-bottom:10px;
+}
+.picture {
+    overflow-x: scroll;
+    width: 100%;
+    white-space: nowrap;
+}
+.pic {
+    width:70%;
+    height:70%;
+}
+
+.mainiframe{
+    width:100%;
+    height:1200px;
+}

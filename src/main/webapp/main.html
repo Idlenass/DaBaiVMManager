@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DABAIYUN | 后台</title>
+    <meta charset="utf-8" />
+    <link href="static/mdui/css/mdui.css" rel="stylesheet">
+    <link href="static/main/css/main.css" rel="stylesheet">
+    <script src="static/vue/js/vue.global.js"></script>
+    <script src="static/jquery/jquery-3.6.0.js"></script>
+    <script src="static/jquery/jquery.cookie.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="static/mdui/js/mdui.js"></script>
+    <link href="static/login/img/dbylogo.ico" rel="shortcut icon" />
+</head>
+
+<body class="mdui-container-fluid mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-white mdui-theme-accent-blue">
+     <div class="weather snow">
+          <header class="mdui-appbar-fixed mdui-appbar">
+               <div class="mdui-color-theme mdui-toolbar" style="background-color:white">
+                    <span onclick="loadBar()" style="border-radius: 100%" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target: '#main-drawer', swipe: true}"><i class="mdui-icon material-icons">menu</i></span>
+                    <span class="mdui-typo-title" id="subTitle">管理控制台</span>
+                    <span onclick="logout()" style="position: absolute; right: 55px; border-radius: 100%" mdui-tooltip="{content: '退出登入', position: 'bottom'}" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white"><i class="mdui-icon material-icons">arrow_back</i></span>
+                    <span onclick="toggleNightMode()" style="position: absolute; right: 5px; border-radius: 100%" mdui-tooltip="{content: '日夜模式', position: 'bottom'}" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white"><i class="mdui-icon material-icons">&#xe3a9;</i></span>
+               </div>
+               <div id="topload" style="display: none; position: absolute; buttom: 10px;" class="mdui-progress">
+                    <div class="mdui-progress-indeterminate"></div>
+               </div>
+          </header>
+
+         <div class="mdui-drawer" id="main-drawer">
+             <div id="leftmenu">
+
+             </div>
+         </div>
+
+         <div id="mainContent">
+
+         </div>
+
+         <div id="footer-golbal">
+
+         </div>
+
+     </div>
+
+     <script src="static/main/js/main.js"></script>
+     <script src="static/main/js/leftmenu.js"></script>
+     <script src="static/main/js/pageloader.js"></script>
+     <script>initMainPage();</script>
+
+</body>
+</html>

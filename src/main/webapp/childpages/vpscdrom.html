@@ -1,0 +1,56 @@
+<!--<link rel="stylesheet" href="static/main/css/vpscdrom.css">-->
+<script src="static/main/js/vpscdrom.js"></script>
+
+<div class="mdui-container" id="isofilelist">
+    <div class="mdui-row-xs-12">
+        <div class="mdui-col-xs-12">
+            <div class="mdui-card">
+                <div class="mdui-card-header">
+                    <div class="mdui-card-header-avatar mdui-icon material-icons">adjust</div>
+                    <div class="mdui-card-header-title">
+                        更换镜像
+                    </div>
+                    <div class="mdui-card-header-subtitle">
+                        VPS-{{vmid}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mdui-container">
+        <div v-for="isofile in isofiles">
+            <isofileradio v-bind:isofile="isofile"></isofileradio>
+        </div>
+
+        <div class="mdui-panel" mdui-panel>
+            <div class="mdui-panel-item mdui-panel-item-open">
+                <div class="mdui-panel-item-header">
+                    <div class="mdui-panel-item-title">注意事项</div>
+                    <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+                </div>
+                <div class="mdui-panel-item-body">
+                    <p>更换镜像会实时更新到VPS中（即使VPS正在运行）</p>
+                    <p>偶尔出现VPS内不更新的情况，需要断电重启VPS才能应用挂载</p>
+                    <p>[什么是断电重启？]</p>
+                    <p>正常关闭VPS，等待几秒，当VPS状态由(运行中)变成(已停止)，再点击启动，即完成了断电重启</p>
+                    <div class="mdui-panel-item-actions">
+                        <button class="mdui-btn mdui-ripple" mdui-panel-item-close>收起提示</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button
+                class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-float-right"
+                onclick="setIso()">
+            确定更换
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+    initPageData();
+</script>

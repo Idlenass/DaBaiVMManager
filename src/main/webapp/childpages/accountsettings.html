@@ -1,0 +1,120 @@
+<link href="static/main/css/accountsettings.css" rel="stylesheet">
+
+<div class="mdui-container">
+
+    <div class="mdui-row">
+        <div class="mdui-col-xs-12 mdui-card">
+            <div class="mdui-card-primary">
+                <div class="mdui-col-xs-1">
+                    <img class="dby-accountsettings-userheadimg mdui-img-circle" src="static/login/img/dbylogo.ico">
+                </div>
+                <div class="mdui-col-xs-6">
+                    <div class="mdui-card-primary-title">BayMax</div>
+                    <div class="mdui-card-primary-subtitle">
+                        <i class="mdui-icon material-icons">star</i>
+                        <i class="mdui-icon material-icons">star</i>
+                        <i class="mdui-icon material-icons">star</i>
+                    </div>
+                </div>
+                <p>&nbsp</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="mdui-row">
+
+        <div class="mdui-card mdui-col-xs-12">
+            <div class="mdui-card-primary">
+                <div class="dby-accountsettings-card-subtitle mdui-card-primary-subtitle">账号设置</div>
+                <div class="dby-accountsettings-card-subrow mdui-row-xs-2">
+
+                    <div class="mdui-row">
+
+                        <div class="mdui-col-xs-4">
+                            <div class="mdui-textfield mdui-textfield-disabled">
+                                <label class="mdui-textfield-label">User ID</label>
+                                <input class="mdui-textfield-input" type="text" value="2109271403" disabled/>
+                                <label class="mdui-textfield-helper">用户ID不可更改</label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="mdui-row">
+
+                        <div class="mdui-col-xs-4">
+                            <div class="mdui-textfield">
+                                <label class="mdui-textfield-label">Username</label>
+                                <input class="mdui-textfield-input" type="text" value="BayMax"/>
+                                <label class="mdui-textfield-helper">修改登入用户名</label>
+                            </div>
+                            <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">保存</button>
+                        </div>
+
+                        <div class="mdui-col-xs-4">
+                            <div class="mdui-textfield">
+                                <label class="mdui-textfield-label">Password</label>
+                                <input class="mdui-textfield-input" type="password" placeholder="No Change"/>
+                                <label class="mdui-textfield-helper">修改登入密码</label>
+                            </div>
+                            <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">保存</button>
+                        </div>
+
+                        <div class="mdui-col-xs-4">
+                            <div class="mdui-textfield">
+                                <label class="mdui-textfield-label">Password Confirm</label>
+                                <input class="mdui-textfield-input" type="password" placeholder="Confirm Password"/>
+                                <label class="mdui-textfield-helper">再次确认登入密码</label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="mdui-row">
+
+                        <div class="mdui-col-xs-4">
+                            <div class="mdui-textfield">
+                                <label class="mdui-textfield-label">QQ</label>
+                                <input class="mdui-textfield-input" type="text" value="1578508057"/>
+                                <label class="mdui-textfield-helper">绑定QQ号</label>
+                            </div>
+                            <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">保存</button>
+                        </div>
+
+                        <div class="mdui-col-xs-4">
+                            <div class="mdui-textfield">
+                                <label class="mdui-textfield-label">Phone</label>
+                                <input class="mdui-textfield-input" type="text" placeholder="PhoneNumber"/>
+                                <label class="mdui-textfield-helper">绑定手机号</label>
+                            </div>
+                            <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">保存</button>
+                        </div>
+
+                        <div class="mdui-col-xs-4">
+                            <div class="mdui-textfield">
+                                <label class="mdui-textfield-label">Email</label>
+                                <input class="mdui-textfield-input" type="email" placeholder="Email"/>
+                                <label class="mdui-textfield-helper">绑定电子邮箱</label>
+                            </div>
+                            <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">保存</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div id="footer-message">
+
+</div>
+
+<script>
+    $("#footer-message").load("childpages/footer-message.html");
+    mdui.mutation();
+</script>

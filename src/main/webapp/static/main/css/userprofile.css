@@ -1,0 +1,80 @@
+.dby-userprofile-card-subtitle{
+    font-size: larger;
+}
+
+.dby-userprofile-userheadimg{
+    width:90%;
+    height:90%;
+    margin-bottom: 20%;
+}
+
+.dby-userprofile-card-accountinfo{
+    height: 200px;
+}
+
+.dby-userprofile-card-todolist{
+    height: 200px;
+}
+
+.dby-userprofile-card-serverinfo{
+    height: 200px;
+}
+
+.dby-userprofile-card-message{
+    height: 200px;
+}
+
+.dby-userprofile-card-joinus{
+    height: 200px;
+}
+
+.dby-userprofile-card-joinus-divs{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.dby-userprofile-card-joinus-qqcode{
+    width: 100px;
+    height: 120px;
+}
+
+.dby-userprofile-card-serverinfo-childcard-title{
+    font-size: medium;
+}
+
+.dby-userprofile-card-serverinfo-childcard-text{
+    color: #9E9E9E;
+}
+
+.dby-userprofile-card-subrow{
+    margin-top: 20px;
+}
+
+.dby-userprofile-card-subrow-title{
+    font-size: medium;
+}
+
+.dby-userprofile-card-subrow-text{
+    margin-top: 10px;
+}
+
+.dby-userprofile-card-subrow-text-smaller{
+    margin-top: 10px;
+    font-size: smaller;
+}
+
+.dby-userprofile-card-subrow-balance{
+    font-size: larger;
+    color:orange;
+}
+
+.dby-userprofile-card-subrow-voucher{
+    font-size: larger;
+}
+
+.dby-userprofile-card-label-num{
+    font-size: large;
+}

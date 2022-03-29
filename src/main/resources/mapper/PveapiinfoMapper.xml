@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.PveapiinfoDao">
+
+    <resultMap id="BaseResultMap" type="entity.Pveapiinfo">
+        <!--@Table PveApiInfo-->
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="hostname" column="hostname" jdbcType="VARCHAR"/>
+        <result property="port" column="port" jdbcType="INTEGER"/>
+        <result property="username" column="username" jdbcType="VARCHAR"/>
+        <result property="password" column="password" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryPveapiinfoById" resultMap="BaseResultMap">
+        select
+          id, hostname, port, username, password
+        from dabaiyunmanager.PveApiInfo
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          id, hostname, port, username, password
+        from dabaiyunmanager.PveApiInfo
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryPveapiinfoByPveapiinfo" resultMap="BaseResultMap">
+        select
+          id, hostname, port, username, password
+        from dabaiyunmanager.PveApiInfo
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="hostname != null and hostname != ''">
+                and hostname = #{hostname}
+            </if>
+            <if test="port != null">
+                and port = #{port}
+            </if>
+            <if test="username != null and username != ''">
+                and username = #{username}
+            </if>
+            <if test="password != null and password != ''">
+                and password = #{password}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insertPveapiinfo" keyProperty="id" useGeneratedKeys="true">
+        insert into dabaiyunmanager.PveApiInfo(hostname, port, username, password)
+        values (#{hostname}, #{port}, #{username}, #{password})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="updatePveapiinfo">
+        update dabaiyunmanager.PveApiInfo
+        <set>
+            <if test="hostname != null and hostname != ''">
+                hostname = #{hostname},
+            </if>
+            <if test="port != null">
+                port = #{port},
+            </if>
+            <if test="username != null and username != ''">
+                username = #{username},
+            </if>
+            <if test="password != null and password != ''">
+                password = #{password},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deletePveapiinfoById">
+        delete from dabaiyunmanager.PveApiInfo where id = #{id}
+    </delete>
+
+</mapper>
